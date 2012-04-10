@@ -112,7 +112,7 @@ namespace MSTParser
         public static void Train(string trainFile, string modelName, int numOfTrainingIterations)
         {
             DependencyParser.NumIters = numOfTrainingIterations;
-            Train(trainFile, modelName, numOfTrainingIterations, false, 1, true, 1);
+            Train(trainFile, modelName, numOfTrainingIterations, false, 1, true, 2);
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace MSTParser
         /// <param name="modelName">Model Path</param>
         public static void Train(string trainFile, string modelName)
         {
-            Train(trainFile, modelName, DefaultNumOfIterations, true, 1, true,2);
+            Train(trainFile, modelName, DefaultNumOfIterations, true, 1, true,1);
         }
 
         #endregion

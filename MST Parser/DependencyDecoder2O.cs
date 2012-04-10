@@ -130,7 +130,7 @@ namespace MSTParser
                 pars += par[i] + "|" + i + ":" + labs[i] + " ";
 
             orig[0, 0] = ((DependencyPipe2O) m_pipe).CreateFeatureVector(toks, pos, labs, par);
-            orig[0, 1] = pars;
+            orig[0, 1] = pars.Trim();
 
 
             return orig;

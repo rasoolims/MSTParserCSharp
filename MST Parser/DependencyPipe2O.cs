@@ -493,7 +493,7 @@ namespace MSTParser
                 {
                     toks[i] = reader.ReadString();
                 }
-                next = reader.ReadInt32();
+                //next = reader.ReadInt32();
                 len = reader.ReadInt32(); //Added by MSR
                 pos = new string[len];
                 for (int i = 0; i < len; i++)
@@ -501,6 +501,8 @@ namespace MSTParser
                     pos[i] = reader.ReadString();
                 }
                 next = reader.ReadInt32();
+                len = reader.ReadInt32(); //Added by MSR
+
                 labs = new string[len];
                 for (int i = 0; i < len; i++)
                 {
