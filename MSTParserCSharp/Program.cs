@@ -12,10 +12,29 @@ namespace MSTParserCSharp
         static void Main(string[] args)
         {
             string dataFolderPath = "../../../Data";
-            CrossValidate(Path.Combine(dataFolderPath, "zakhireh-mst-train"), 10);
+            MSTParser.MSTParser.Train(
+                Path.Combine(dataFolderPath, "train.21.txt"),
+                Path.Combine("", "model.dep"),
+                5, false, 1, true, 2);
+
+            MSTParser.MSTParser.Test(
+                Path.Combine(dataFolderPath, "test.21.txt"),
+                Path.Combine("", "model.dep"),
+                Path.Combine("", "out.21.txt"), 2);
+
+            EvaluationResult evaluationResult = MSTParser.MSTParser.Evaluate(
+                Path.Combine(dataFolderPath, "test.21.txt"),
+                Path.Combine("", "out.21.txt"));
+            
+            
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// for cross validation of a file
+        /// </summary>
+        /// <param name="path">file path</param>
+        /// <param name="num">num of validation folds</param>
         public static void CrossValidate(string path, int num)
         {
             var reader = new StreamReader(path);
@@ -66,20 +85,17 @@ namespace MSTParserCSharp
                 MSTParser.MSTParser.Train(
                 Path.Combine("", trainPath),
                 Path.Combine("", "model.dep"),
-                5, false, 1, true, 1);
+                5, false, 1, true, 2);
 
                 MSTParser.MSTParser.Test(
                     Path.Combine("", testPath),
                     Path.Combine("", "model.dep"),
-                    Path.Combine("", "out." + i + 1 + ".txt"), 1);
+                    Path.Combine("", "out." + i + 1 + ".txt"), 2);
 
                 EvaluationResult evaluationResult = MSTParser.MSTParser.Evaluate(
                     Path.Combine("", testPath),
                     Path.Combine("", "out." + i + 1 + ".txt"));
             }
-
         }
-
     }
-
 }
