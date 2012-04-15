@@ -1,3 +1,5 @@
+In the name of Allah
+
 -------------------------
 MSTParser C# conversion of JAVA version 0.2
 -------------------------
