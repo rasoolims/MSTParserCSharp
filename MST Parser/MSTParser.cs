@@ -36,7 +36,8 @@ namespace MSTParser
         {
             DependencyParser.SecondOrder = (order == 2 ? true : false);
             DependencyParser.DecodeType = isProjective ? ProjectiveTypes.Projective : ProjectiveTypes.NonProjective;
-
+            DependencyParser.NumIters = numOfTrainingIterations;
+            
             DependencyPipe pipe =
                 order == 2 ? new DependencyPipe2O(createForest) : new DependencyPipe(createForest);
             DependencyParser.SecondOrder = order == 2 ? true : false;

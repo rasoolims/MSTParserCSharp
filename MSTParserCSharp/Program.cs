@@ -15,7 +15,7 @@ namespace MSTParserCSharp
             MSTParser.MSTParser.Train(
                 Path.Combine(dataFolderPath, "train.21.txt"),
                 Path.Combine("", "model.dep"),
-                5, false, 1, true, 2);
+                20, false, 1, true, 2);
 
             MSTParser.MSTParser.Test(
                 Path.Combine(dataFolderPath, "test.21.txt"),
